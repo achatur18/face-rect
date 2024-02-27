@@ -1,0 +1,20 @@
+[storage]
+storagetype = "s3"
+
+[upload]
+verification = true
+
+[download]
+verification = false
+
+[db]
+dbtype = "mongo"
+dbname = "faceRecDB"
+embedding_table = "img2emb"
+config_table = "configs"
+events_table = "events"
+
+[algo]
+algo_name = "mongoVectorSearch"  #faiss
+index_name = "vector_index"    #"IndexFlatL2"
+embedding_dimensions = 512

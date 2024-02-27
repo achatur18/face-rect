@@ -1,0 +1,4 @@
+mongo
+numpy 
+loguru
+toml

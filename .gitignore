@@ -1,0 +1,20 @@
+# byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# pyenv versions
+.python-version
+
+# models artifacts
+src/face_models/*.onnx
+
+# jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# other ds_store files
+.DS_Store
+test.py
+
+# local storage
+local_storage/*

@@ -1,0 +1,4 @@
+[model]
+folder_name="face_models"
+face_detection_model_name="face_detection.onnx"
+face_recognition_model_name="face_recognition.onnx"
