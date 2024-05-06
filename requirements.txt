@@ -2,3 +2,10 @@ mongo
 numpy 
 loguru
 toml
+uvicorn
+fastapi
+opencv-python
+insightface<=0.1.5
+onnx
+onnxruntime
+boto3
