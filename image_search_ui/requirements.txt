@@ -3,3 +3,4 @@ plotly
 dash-uploader 
 pillow 
 requests
+requests_toolbelt
