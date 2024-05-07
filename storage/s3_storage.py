@@ -176,7 +176,7 @@ class S3Storage(StorageBase):
                                                       Params={'Bucket': self.bucketName,
                                                               'Key': object_name},
                                                       ExpiresIn=expiration)
-            return response
+            return {"response": response}
         except NoCredentialsError:
             print("Credentials not available")
             return None
