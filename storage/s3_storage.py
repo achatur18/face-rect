@@ -164,7 +164,7 @@ class S3Storage(StorageBase):
             response_images.append(loc)
         return response_images
         
-    def get_image_download_link(self, object_name, expiration=30):
+    def get_image_download_link(self, object_name, expiration=60):
         """Generate a presigned URL to download an image from an S3 bucket.
 
         :param object_name: S3 object name
