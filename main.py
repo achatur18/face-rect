@@ -48,9 +48,9 @@ async def create_download_files(event_id: str = Query(...), files: List[UploadFi
     
 
 @app.post("/get_download_link/")
-async def get_download_link(s3_uri: str = Query(...), expiration: int = 3600):
+def get_download_link(s3_uri: str = Query(...), expiration: int = 3600):
     try:
-        response = await algorithm.storage.get_image_download_link(s3_uri, expiration)
+        response = algorithm.storage.get_image_download_link(s3_uri, expiration)
         response["status"] = "DONE"
         return response
     except Exception as e:
