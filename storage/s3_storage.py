@@ -13,7 +13,7 @@ class S3Storage(StorageBase):
         self.bucketName = os.getenv("BUCKET_NAME", "facerect")
         self.uploadFolderName = os.getenv("FOLDER_NAME", "uploaded_images")
         self.upload_img_path = os.path.join(self.bucketName, self.uploadFolderName)
-        self.s3 = boto3.client('s3')
+        self.s3 = boto3.client('s3', region_name='ap-south-1')
 
     async def upload_file_to_s3(self, upload_file: UploadFile, event_id: str):
         """
