@@ -50,7 +50,12 @@ app.layout = html.Div([
     html.Div(id='output-image-search', style={'display': 'flex', 'flex-wrap': 'wrap'}),  # Container for images
     html.Div(id='output-info') 
 ])
-
+def display_s3_image(image_url, caption): 
+    # We directly use the provided URL
+    return html.Div([
+        html.H5(caption),
+        html.Img(src=image_url, style={'width': '23%', 'margin': '1%'})  
+    ])
 
 # Helper function to display an image
 def display_image(image_path, caption):
@@ -82,7 +87,7 @@ def search_similar_images(contents, filename):
                 # images = [display_image(result['image_data'], result['caption']) for result in results['similar']]
                 # results = ["/Users/abhaychaturvedi/Documents/Work/id-verification/face_rect/src/test/test.jpeg"]
                 results = results["results"]
-                images = [display_image(image, "Similar Image") for image in results]
+                images = [display_s3_image(image, "Similar Image") for image in results]
 
                 return images, "Similar Images Found!"
             else:
