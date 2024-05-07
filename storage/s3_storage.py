@@ -157,6 +157,13 @@ class S3Storage(StorageBase):
             print("Credentials not available")
             return False
         
+    def make_s3_uris(self, images_loc):
+        response_images = []
+        for image_loc in images_loc:
+            loc = os.path.join(f"s3://{self.bucketName}", image_loc)
+            response_images.append(loc)
+        return response_images
+        
     def get_image_download_link(self, object_name, expiration=30):
         """Generate a presigned URL to download an image from an S3 bucket.
 

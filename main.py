@@ -37,9 +37,9 @@ async def create_upload_files(event_id: str = Query(...), files: List[UploadFile
         return {"status": "FAILURE", "reason": str(e)}
 
 @app.post("/download/")
-async def create_download_files(event_id: str = Query(...), files: List[UploadFile] = File(...), limit: int = 2, threshold: float = 0.4):
+async def create_download_files(event_id: str = Query(...), files: List[UploadFile] = File(...), limit: int = 2, threshold: float = 0.4, s3_download=True):
     try:
-        config = {"event_id": event_id, "limit": limit, "threshold": threshold}
+        config = {"event_id": event_id, "limit": limit, "threshold": threshold, "s3_download": s3_download}
         response = await algorithm.download(config, files)
         response["status"] = "DONE"
         return response

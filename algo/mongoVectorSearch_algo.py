@@ -47,7 +47,11 @@ class MongovectorsearchAlgo(AlgoBase):
             for embedding in embeddings:
                 result = self.search_embeddings(embedding, config)
                 results.extend(result)
-        return list(set(results))
+        final_results = list(set(results))
+        if config["s3_download"]:
+            s3_uris = self.storage.make_s3_uris(final_results)
+            final_results = [self.storage.get_image_download_link(uri) for uri in s3_uris]
+        return final_results
     
     def get_embeddings_list(self, config, local_uploaded_files):
         logger.info("Getting embeddings.")
