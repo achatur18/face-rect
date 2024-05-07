@@ -80,7 +80,8 @@ def search_similar_images(contents, filename):
 
             if results["status"]=="DONE":
                 # images = [display_image(result['image_data'], result['caption']) for result in results['similar']]
-                results = ["/Users/abhaychaturvedi/Documents/Work/id-verification/face_rect/src/test/test.jpeg"]#results["results"]
+                # results = ["/Users/abhaychaturvedi/Documents/Work/id-verification/face_rect/src/test/test.jpeg"]
+                results = results["results"]
                 images = [display_image(image, "Similar Image") for image in results]
 
                 return images, "Similar Images Found!"
